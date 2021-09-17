@@ -2,10 +2,7 @@ import express from "express";
 import UserXYZ from "./model/userModel";
 import cors from "cors";
 
-const client = require("twilio")(
-  "ACfc6fa30781599ced396020b52e7496c4",
-  "2c41c5ceb364fe71aa6d7d002b889f4b"
-);
+const client = require("twilio")();
 
 const app = express();
 
