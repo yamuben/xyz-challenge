@@ -75,7 +75,7 @@ app.post("/api/pay", async (req, res) => {
       const payload = {
         tx_ref: "MC-" + Date.now(), //This is a unique reference, unique to the particular transaction being carried out. It is generated when it is not provided by the merchant for every transaction.
         order_id: "USS_URG_" + Date.now(), //Unique ref for the mobilemoney transaction to be provided by the merchant
-        amount: "100",
+        amount: "10000",
         currency: "RWF",
         email: "olufemi@flw.com",
         phone_number: phone,
