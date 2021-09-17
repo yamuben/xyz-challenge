@@ -6,6 +6,10 @@ With this app you can transfer money using momo API
 
 -> nodejs
 
+-> express
+
+-> ReactJS
+
 ## Get Started
 To start using this app for your purpose you first need to install all used packages by running the following script
 Navigate to client folder and the inside xyz-challenge-2 to install frontend server and run the same script
@@ -22,7 +26,7 @@ To run backend navigate to server folder and run
 
 # Client UI
 
--> express![xyz](https://user-images.githubusercontent.com/58092199/133833415-94776dab-19a3-46eb-980e-9ba86592c00b.JPG)
+![xyz](https://user-images.githubusercontent.com/58092199/133833415-94776dab-19a3-46eb-980e-9ba86592c00b.JPG)
 
 
--> ReactJS![xcz](https://user-images.githubusercontent.com/58092199/133833445-55bd1407-d8f7-4ee2-ade8-e80296b1fab8.JPG)
+![xcz](https://user-images.githubusercontent.com/58092199/133833445-55bd1407-d8f7-4ee2-ade8-e80296b1fab8.JPG)
