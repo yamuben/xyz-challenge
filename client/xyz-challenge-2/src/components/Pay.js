@@ -26,20 +26,20 @@ const Pay = () => {
   };
 
   const callBackend = async (data) => {
-    const phone = data.phone.length > 10 ? data.phone : "+250" + data.phone;
-    data.phone = phone;
-
-    console.log(data);
     try {
-      //   await axios({
-      //     method: "POST",
-      //     url: "http://localhost:9090/api/register",
-      //     data,
-      //   });
-      //   window.location.replace("http://localhost:3000/");
-      console.log("Ckeck");
+      const res = await axios({
+        method: "POST",
+        url: "http://localhost:9090/api/pay",
+        data,
+      });
+
+      if (res.data.status === "success") {
+        window.location.replace(res.data.meta.authorization.redirect);
+      } else {
+        alert("Failed try again later");
+      }
     } catch (err) {
-      alert("Faled try again later, with other information");
+      alert(err);
     }
   };
 
@@ -51,7 +51,7 @@ const Pay = () => {
     };
 
     const temp = state.formErrors;
-    console.log(!state.phone);
+
     if (!state.phone) {
       temp.phone = "Phone can't be empty";
     }

@@ -56,7 +56,7 @@ const RegisterForm = (props) => {
   };
 
   const callBackend = async (data) => {
-    const phone = data.phone.length > 10 ? data.phone : "+250" + data.phone;
+    const phone = data.phone.length > 10 ? data.phone : "+25" + data.phone;
     data.phone = phone;
     try {
       await axios({

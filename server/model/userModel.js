@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
+      unique: true,
       required: [true, "Please provide your phone number"],
     },
   },
