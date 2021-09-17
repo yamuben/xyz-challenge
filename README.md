@@ -1,7 +1,7 @@
 # xyz-challenge-II
 Transfer money with MoMo API
 
-With this app you can transfer money using momo API
+With this app you can transfer money using Flutter wave and MTN mobile money
 # Stack used:
 
 -> nodejs
