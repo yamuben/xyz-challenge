@@ -17,7 +17,7 @@ const auth = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(cid, auth);
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 app.post("/api/register", async (req, res) => {
