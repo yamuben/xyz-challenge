@@ -1,8 +1,14 @@
 import express from "express";
 import UserXYZ from "./model/userModel";
 import cors from "cors";
+import dotenv from "dotenv";
 
-const client = require("twilio")();
+dotenv.config({ path: "./server/config.env" });
+
+const cid = process.env.TWILIO_ACCOUNT_ID;
+const auth = process.env.TWILIO_AUTH_TOKEN;
+
+const client = require("twilio")(cid, auth);
 
 const app = express();
 
