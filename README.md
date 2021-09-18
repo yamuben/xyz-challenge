@@ -26,7 +26,6 @@ To run backend navigate to server folder and run
 
 # Client UI
 
-![xyz](https://user-images.githubusercontent.com/58092199/133833415-94776dab-19a3-46eb-980e-9ba86592c00b.JPG)
-
+![xy](https://user-images.githubusercontent.com/58092199/133895881-ebb86b2a-1b8b-40ce-8f6f-0d4f610e6687.JPG)
 
 ![xcz](https://user-images.githubusercontent.com/58092199/133833445-55bd1407-d8f7-4ee2-ade8-e80296b1fab8.JPG)
