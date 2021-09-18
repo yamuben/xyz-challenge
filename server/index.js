@@ -25,13 +25,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/register", async (req, res) => {
-  const { name, phone, projectName, email } = req.body;
+  let { name, phone, projectName, email } = req.body;
   if (!name || !phone || !projectName || !email) {
     res.status(400).json({
       status: "fail",
       message: "No data provided",
     });
   } else {
+    phone = phone.length > 10 ? phone : "+25" + phone;
     try {
       const newUser = await UserXYZ.create({
         name,
@@ -49,10 +50,9 @@ app.post("/api/register", async (req, res) => {
 
       res.status(201).json({
         status: "sucess",
-        data: newUser,
+        data: phone,
       });
     } catch (err) {
-      console.log(err);
       res.status(500).json({
         status: "fail",
         message: err.message,
@@ -62,13 +62,14 @@ app.post("/api/register", async (req, res) => {
 });
 
 app.post("/api/pay", async (req, res) => {
-  const { phone, amount } = req.body;
+  let { phone, amount } = req.body;
   if (!phone || !amount) {
     res.status(400).json({
       status: "fail",
       message: "No data provided",
     });
   } else {
+    phone = phone.length > 10 ? phone.slice(3) : phone;
     try {
       // const user = await UserXYZ.findOne({ phone });
       const payload = {
@@ -85,7 +86,12 @@ app.post("/api/pay", async (req, res) => {
       res.status(200).json({
         ...response,
       });
-    } catch (err) {}
+    } catch (err) {
+      res.status(500).json({
+        status: "fail",
+        message: "Try again later",
+      });
+    }
   }
 });
 

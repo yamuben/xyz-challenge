@@ -41,7 +41,7 @@ const RegisterForm = (props) => {
         temp.name = value.length < 2 ? "Name is required!" : "";
         break;
       case "phone":
-        temp.phone = value.length < 2 ? "Phone is required!" : "";
+        temp.phone = value.length < 10 ? "Phone is required!" : "";
         break;
       case "email":
         temp.email = value.length < 2 ? "Email is required!" : "";
