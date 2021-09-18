@@ -41,7 +41,7 @@ app.post("/api/register", async (req, res) => {
         email,
       });
 
-      const message = `Dear ${newUser.name},\nYour request has been submitted successfully, below is the link to pay your upfront amount of 10,000 RWF https://you-pay.netlify.app/pay using MTN momo`;
+      const message = `Dear ${newUser.name},\nYour request has been submitted successfully, below is the link to pay your upfront amount of 100 RWF https://you-pay.netlify.app/pay using MTN momo`;
       await client.messages.create({
         body: message,
         from: process.env.TWILIO_CONTACT,
