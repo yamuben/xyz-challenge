@@ -40,17 +40,12 @@ app.post("/api/register", async (req, res) => {
         email,
       });
 
-      const message = `Dear ${newUser.name},\nYour request has been submitted successfully,
-         below is the link to pay your upfront amount of 10,000 RWF 
-         https://192.185.10.10:3000/pay
-         with the next form using MTN,`;
+      const message = `Dear ${newUser.name},\nYour request has been submitted successfully, below is the link to pay your upfront amount of 10,000 RWF https://you-pay.netlify.app/pay using MTN momo`;
       await client.messages.create({
         body: message,
         from: process.env.TWILIO_CONTACT,
         to: newUser.phone,
       });
-
-      console.log(newUser);
 
       res.status(201).json({
         status: "sucess",
@@ -87,7 +82,6 @@ app.post("/api/pay", async (req, res) => {
       };
 
       const response = await flw.MobileMoney.rwanda(payload);
-      console.log(response);
       res.status(200).json({
         ...response,
       });
