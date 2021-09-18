@@ -88,7 +88,7 @@ app.post("/api/pay", async (req, res) => {
           email: "olufemi@flw.com",
           phone_number: phone,
           fullname: "Irankunda Fabrice",
-          redirect_url: "https://you-pay.netlify.app/",
+          redirect_url: "https://you-pay.netlify.app/success",
         };
 
         const response = await flw.MobileMoney.rwanda(payload);
