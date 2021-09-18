@@ -20,6 +20,10 @@ const app = express();
 app.use(cors({ origin: "*" }));
 
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Welcome");
+});
+
 app.post("/api/register", async (req, res) => {
   const { name, phone, projectName, email } = req.body;
   if (!name || !phone || !projectName || !email) {
