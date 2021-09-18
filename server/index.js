@@ -3,6 +3,9 @@ import UserXYZ from "./model/userModel";
 import cors from "cors";
 import dotenv from "dotenv";
 
+const app = express();
+app.use(cors({ origin: "*" }));
+
 dotenv.config({ path: "./server/config.env" });
 const Flutterwave = require("flutterwave-node-v3");
 
@@ -15,9 +18,6 @@ const cid = process.env.TWILIO_ACCOUNT_ID;
 const auth = process.env.TWILIO_AUTH_TOKEN;
 
 const client = require("twilio")(cid, auth);
-
-const app = express();
-app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 app.get("/", (req, res) => {
