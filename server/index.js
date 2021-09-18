@@ -64,29 +64,38 @@ app.post("/api/register", async (req, res) => {
 app.post("/api/pay", async (req, res) => {
   let { phone, amount } = req.body;
   if (!phone || !amount) {
-    res.status(400).json({
+    res.status(200).json({
       status: "fail",
       message: "No data provided",
     });
   } else {
+    const searchPhone = phone.length > 10 ? phone : "+25" + phone;
     phone = phone.length > 10 ? phone.slice(3) : phone;
     try {
-      // const user = await UserXYZ.findOne({ phone });
-      const payload = {
-        tx_ref: "MC-" + Date.now(), //This is a unique reference, unique to the particular transaction being carried out. It is generated when it is not provided by the merchant for every transaction.
-        order_id: "USS_URG_" + Date.now(), //Unique ref for the mobilemoney transaction to be provided by the merchant
-        amount: "10000",
-        currency: "RWF",
-        email: "olufemi@flw.com",
-        phone_number: phone,
-        fullname: "Irankunda Fabrice",
-        redirect_url: "https://you-pay.netlify.app/",
-      };
+      const user = await UserXYZ.findOne({ phone: searchPhone });
 
-      const response = await flw.MobileMoney.rwanda(payload);
-      res.status(200).json({
-        ...response,
-      });
+      if (!user) {
+        res.status(200).json({
+          status: "fail",
+          message: "Unsubscribed user, Please register first",
+        });
+      } else {
+        const payload = {
+          tx_ref: "MC-" + Date.now(), //This is a unique reference, unique to the particular transaction being carried out. It is generated when it is not provided by the merchant for every transaction.
+          order_id: "USS_URG_" + Date.now(), //Unique ref for the mobilemoney transaction to be provided by the merchant
+          amount: "10000",
+          currency: "RWF",
+          email: "olufemi@flw.com",
+          phone_number: phone,
+          fullname: "Irankunda Fabrice",
+          redirect_url: "https://you-pay.netlify.app/",
+        };
+
+        const response = await flw.MobileMoney.rwanda(payload);
+        res.status(200).json({
+          ...response,
+        });
+      }
     } catch (err) {
       res.status(500).json({
         status: "fail",
