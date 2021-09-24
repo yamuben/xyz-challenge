@@ -12,8 +12,8 @@ With this app you can transfer money using Flutter wave and MTN mobile money
 
 ## Get Started
 To start using this app for your purpose you first need to install all used packages by running the following script
-Navigate to client folder and the inside xyz-challenge-2 to install frontend server and run the same script
--> npm install
+Navigate to client folder and the inside xyz-challenge-2 to install frontend packages and go back to step to run the same script for backend packages.
+### -> npm install
 
 ## Then run the client and backend server
 To run fontend navigate inside client folder and run
