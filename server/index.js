@@ -19,10 +19,7 @@ const auth = process.env.TWILIO_AUTH_TOKEN;
 
 const client = require("twilio")(cid, auth);
 
-app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Welcome");
-});
+app.use(express.json())
 
 app.post("/api/register", async (req, res) => {
   let { name, phone, projectName, email } = req.body;
