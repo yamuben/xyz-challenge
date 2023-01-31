@@ -61,10 +61,10 @@ const RegisterForm = (props) => {
     try {
       await axios({
         method: "POST",
-        url: "http://localhost:9090/api/register",
+        url: "http://localhost:9095/api/register",
         data,
       });
-      window.location.replace("http://localhost:3000/pay");
+      window.location.replace("http://localhost:3001/pay");
     } catch (err) {
       alert("Faled try again later, with other information");
     }

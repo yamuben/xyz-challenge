@@ -4,10 +4,7 @@ import app from "./index";
 
 dotenv.config({ path: "./server/config.env" });
 
-const DB = process.env.DATABASE.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE;
 
 mongoose
   .connect(DB, {
@@ -15,7 +12,7 @@ mongoose
   })
   .then(() => console.log("DB connected successfully!"));
 
-const port = process.env.PORT || 9090;
+const port = process.env.PORT || 9095;
 
 app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`);

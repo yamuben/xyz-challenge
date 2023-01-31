@@ -17,7 +17,7 @@ const flw = new Flutterwave(
 const cid = process.env.TWILIO_ACCOUNT_ID;
 const auth = process.env.TWILIO_AUTH_TOKEN;
 
-const client = require("twilio")(cid, auth);
+// const client = require("twilio")(cid, auth);
 
 app.use(express.json())
 
@@ -39,11 +39,11 @@ app.post("/api/register", async (req, res) => {
       });
 
       const message = `Dear ${newUser.name},\nYour request has been submitted successfully, below is the link to pay your upfront amount of 100 RWF https://you-pay.netlify.app/pay using MTN momo`;
-      await client.messages.create({
-        body: message,
-        from: process.env.TWILIO_CONTACT,
-        to: newUser.phone,
-      });
+      // await client.messages.create({
+      //   body: message,
+      //   from: process.env.TWILIO_CONTACT,
+      //   to: newUser.phone,
+      // });
 
       res.status(201).json({
         status: "sucess",
@@ -82,13 +82,14 @@ app.post("/api/pay", async (req, res) => {
           order_id: "USS_URG_" + Date.now(), //Unique ref for the mobilemoney transaction to be provided by the merchant
           amount: "100",
           currency: "RWF",
-          email: "olufemi@flw.com",
+          email: "irankundafabrice8@gmail.com",
           phone_number: phone,
           fullname: "Irankunda Fabrice",
           redirect_url: "https://you-pay.netlify.app/success",
         };
 
         const response = await flw.MobileMoney.rwanda(payload);
+        console.log(">>>>>>>>>>>>>>", response);
         res.status(200).json({
           ...response,
         });
